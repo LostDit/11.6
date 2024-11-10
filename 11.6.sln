@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Шифр Цезаря", "Шифр Цезаря\Шифр Цезаря.vcxproj", "{2057783B-2FEB-4947-A3E3-4B112783CD81}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Проверка корректности email-адреса", "Проверка корректности email-адреса\Проверка корректности email-адреса.vcxproj", "{64A409EC-7F26-449A-8724-3B9362DAEF0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{2057783B-2FEB-4947-A3E3-4B112783CD81}.Release|x64.Build.0 = Release|x64
 		{2057783B-2FEB-4947-A3E3-4B112783CD81}.Release|x86.ActiveCfg = Release|Win32
 		{2057783B-2FEB-4947-A3E3-4B112783CD81}.Release|x86.Build.0 = Release|Win32
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Debug|x64.ActiveCfg = Debug|x64
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Debug|x64.Build.0 = Debug|x64
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Debug|x86.Build.0 = Debug|Win32
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Release|x64.ActiveCfg = Release|x64
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Release|x64.Build.0 = Release|x64
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Release|x86.ActiveCfg = Release|Win32
+		{64A409EC-7F26-449A-8724-3B9362DAEF0B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
