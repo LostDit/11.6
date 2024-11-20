@@ -1,31 +1,60 @@
 ﻿#include <iostream>
-std::string valid_characters(std::string symbols) {
-	symbols = '!', '#', '$', '%', '*', '+', '-', '/', '=', '?', '^', '_', '`', '{', '|', '}', '~';
-	for (int i = 0; i < symbols.length(); i++) {
-	
-	
-	};
+#include <string>
+bool the_firs_part(bool part1,std::string email) {
+    int g = 0;
+    for (int i = 0; i < email.length(); i++) {
+        if ((email[i] = '@'&&g<1)||(email[i] = '@'&&g>64)) {
+          
+        }
+        else g++;
+    }
+
+}
+bool english_letters(bool letters, std::string email) {
+    for (int i = 0; i < email.length(); i++) {
+        if ((email[i] >= 'a' && email[i] <= 'z') || (email[i] >= 'A' && email[i] <= 'Z')) {
+            letters = true;
+        }
+        else letters = false;
+    }
+    return letters;
 };
 
-std::string correctness_of_the_input(std::string stroka) {
-	bool final = true, validate = true;
-	while (final) {
-		system("cls");
-		validate == true ? std::cout << "Enter your email address: " : std::cout << "Error re-enter email: ";
-		std::cin >> stroka;
-		for (int i = 0; i < stroka.length() && validate == true; i++) {
-			if (stroka[i] == '@' && stroka.length() < 1) {
-				validate = false;
-			}
+bool simbol(bool simbol,std::string email) {
+    for (int i = 0; i < email.length(); i++) {
+        if (email[i] == '!' || email[i] == '#' || email[i] == '$' || email[i] == '%' || email[i] == '&' || email[i] == '\'' || email[i] == '*' || email[i] == '+' || email[i] == '-' || email[i] == '/' || email[i] == '=' || email[i] == '?' || email[i] == '^' || email[i] == '_' || email[i] == '`' || email[i] == '{' || email[i] == '|' || email[i] == '}' || email[i] == '~') {
+            simbol = true;
+        }
+        else {
+            simbol = false;
+            break;
+        }
+    }
+    return simbol;
+};
 
-		}
-	}
-	return stroka;
+bool is_valid(std::string email) {
+    bool letters_ = true, simbol_ = true, validate;
+    letters_ = english_letters(letters_, email);
+    simbol_ = simbol(simbol_, email);
+    simbol_ == true && letters_ == true ? validate = true : validate = false;
+
+    return validate;
 };
 
 
-int main() {
-	std::string stroka;
-	stroka = correctness_of_the_input(stroka);
-	
+int main()  {
+    std::string email;
+    std::cout << "Enter your email address: ";
+    getline(std::cin, email);
+
+    bool validate = is_valid(email);
+
+    if (validate) {
+        std::cout << "Yes\n";
+    }else {
+        std::cout << "No\n";
+    }
+
+    return 0;
 }
