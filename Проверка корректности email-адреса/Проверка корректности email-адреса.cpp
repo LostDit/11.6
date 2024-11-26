@@ -1,15 +1,15 @@
 ﻿#include <iostream>
 #include <string>
-bool the_firs_part(bool part1,std::string email) {
-    int g = 0;
-    for (int i = 0; i < email.length(); i++) {
-        if ((email[i] = '@'&&g<1)||(email[i] = '@'&&g>64)) {
-          
-        }
-        else g++;
-    }
-
-}
+//bool the_firs_part(bool part1,std::string email) {
+//    int g = 0;
+//    for (int i = 0; i < email.length(); i++) {
+//        if ((email[i] = '@'&&g<1)||(email[i] = '@'&&g>64)) {
+//          
+//        }
+//        else g++;
+//    }
+//
+//}
 bool english_letters(bool letters, std::string email) {
     for (int i = 0; i < email.length(); i++) {
         if ((email[i] >= 'a' && email[i] <= 'z') || (email[i] >= 'A' && email[i] <= 'Z')) {
@@ -21,13 +21,15 @@ bool english_letters(bool letters, std::string email) {
 };
 
 bool simbol(bool simbol,std::string email) {
-    for (int i = 0; i < email.length(); i++) {
-        if (email[i] == '!' || email[i] == '#' || email[i] == '$' || email[i] == '%' || email[i] == '&' || email[i] == '\'' || email[i] == '*' || email[i] == '+' || email[i] == '-' || email[i] == '/' || email[i] == '=' || email[i] == '?' || email[i] == '^' || email[i] == '_' || email[i] == '`' || email[i] == '{' || email[i] == '|' || email[i] == '}' || email[i] == '~') {
+    int tochka = 0;
+    for (int i = 0; i < email.length()&&simbol==true; i++) {
+        if (email[i] == '.' && tochka < 1) {
+            tochka++;
+            if(tochka>1){
+                simbol = false;
+            }
+        }if (email[i] == '!' || email[i] == '#' || email[i] == '$' || email[i] == '%' || email[i] == '&' || email[i] == '\'' || email[i] == '*' || email[i] == '+' || email[i] == '-' || email[i] == '/' || email[i] == '=' || email[i] == '?' || email[i] == '^' || email[i] == '_' || email[i] == '`' || email[i] == '{' || email[i] == '|' || email[i] == '}' || email[i] == '~'|| email[i] == '.') {
             simbol = true;
-        }
-        else {
-            simbol = false;
-            break;
         }
     }
     return simbol;
