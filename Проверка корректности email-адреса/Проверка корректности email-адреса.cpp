@@ -1,62 +1,44 @@
 ﻿#include <iostream>
 #include <string>
-//bool the_firs_part(bool part1,std::string email) {
-//    int g = 0;
-//    for (int i = 0; i < email.length(); i++) {
-//        if ((email[i] = '@'&&g<1)||(email[i] = '@'&&g>64)) {
-//          
-//        }
-//        else g++;
-//    }
-//
-//}
-bool english_letters(bool letters, std::string email) {
-    for (int i = 0; i < email.length(); i++) {
-        if ((email[i] >= 'a' && email[i] <= 'z') || (email[i] >= 'A' && email[i] <= 'Z')) {
-            letters = true;
+#include<vector>
+std::string WhiteList = "!#$%&'*+-/=?^_`{|}~";
+using namespace std;
+bool CheckMailBodyValid(string body) {
+    return true;
+}
+bool CheckMailDomainValid(string domain) {
+    return true;
+}
+bool CheckMailValid(std::string email) {
+    std::string BodyValid, DomainValid;
+    int sobakaIndex = -1;
+    bool isdotfind = false;
+
+    if (email[0] == '.' && email[email.length() - 1] == '.')
+        return false;
+    if (email[0] == '@' && email[email.length() - 1] == '@')
+        return false;
+    for (int i = 0; i < email.length() - 1; i++) {
+        
+        if(email[i] == '.' && email[i+1] == '.'){
+            return false;
         }
-        else letters = false;
-    }
-    return letters;
-};
 
-bool simbol(bool simbol,std::string email) {
-    int tochka = 0;
-    for (int i = 0; i < email.length()&&simbol==true; i++) {
-        if (email[i] == '.' && tochka < 1) {
-            tochka++;
-            if(tochka>1){
-                simbol = false;
-            }
-        }if (email[i] == '!' || email[i] == '#' || email[i] == '$' || email[i] == '%' || email[i] == '&' || email[i] == '\'' || email[i] == '*' || email[i] == '+' || email[i] == '-' || email[i] == '/' || email[i] == '=' || email[i] == '?' || email[i] == '^' || email[i] == '_' || email[i] == '`' || email[i] == '{' || email[i] == '|' || email[i] == '}' || email[i] == '~'|| email[i] == '.') {
-            simbol = true;
+        if(email[i] == '@') {
+            if(sobakaIndex == -1)
+                sobakaIndex = i;
+            else
+                return false;
         }
     }
-    return simbol;
-};
 
-bool is_valid(std::string email) {
-    bool letters_ = true, simbol_ = true, validate;
-    letters_ = english_letters(letters_, email);
-    simbol_ = simbol(simbol_, email);
-    simbol_ == true && letters_ == true ? validate = true : validate = false;
+    return  CheckMailBodyValid(email.substr(0, sobakaIndex - 1)) && CheckMailDomainValid(email.substr(sobakaIndex + 1, email.length() - 1));
 
-    return validate;
-};
+}
 
-
-int main()  {
+int main() {
     std::string email;
-    std::cout << "Enter your email address: ";
+    std::cout << "Enter the email: ";
     getline(std::cin, email);
-
-    bool validate = is_valid(email);
-
-    if (validate) {
-        std::cout << "Yes\n";
-    }else {
-        std::cout << "No\n";
-    }
-
-    return 0;
+    CheckMailValid(email) ? std::cout << "Yes" : std::cout << "No";
 }
