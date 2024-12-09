@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿//Корректность валидации заданного пользователем адреса.
+#include <iostream>
 #include <string>
 
 bool _tochka(std::string ipvalidation, bool tochka) {
@@ -42,7 +43,10 @@ bool _sizedigits(std::string ipvalidation, bool sizedigits) {
 			sizedigits = false;
 			continue;
 		}
-		
+		if (ipvalidation[i] == '0' && ipvalidation[i + 1] == '0') {
+			sizedigits = false;
+			continue;
+		}
 		if (ipvalidation[i] == '.') {
 			sd = stoi(sizedi);
 			 if (sd < 0 || sd >= 256) {
@@ -67,9 +71,11 @@ bool _valid(std::string ipvalidation, bool valid) {
 }
 int main() {
 	std::string ipvalidation; bool valid = true;
-	std::cout << "Enter the IPv4: ";
-	getline(std::cin, ipvalidation);
-	valid = _valid(ipvalidation, valid);
-	valid == true ? std::cout << "Valid" : std::cout << "Invalid";
-
+	while (true) {
+		std::cout << "Enter the IPv4: ";
+		getline(std::cin, ipvalidation);
+		system("cls");
+		std::cout << ipvalidation<<"\n";
+		_valid(ipvalidation, valid) ? std::cout << "Valid\n" : std::cout << "Invalid\n";
+	}
 }

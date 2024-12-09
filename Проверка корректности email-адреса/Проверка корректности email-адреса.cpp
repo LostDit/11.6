@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿//Корректные результаты валидации адресов электронной почты. Должны устанавливаться как валидные адреса, так и невалидные.
+#include <iostream>
 #include <string>
 using namespace std;
 
